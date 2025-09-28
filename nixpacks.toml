@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = [
+    "ffmpeg",
+    "python311",
+    "mkvtoolnix"
+]
+aptPkgs = ["libicu74"]
+
+[phases.build]
+commands = [
+    "pip install -r requirements.txt",
+    "sudo chmod 777 N_m3u8DL-RE; sudo cp N_m3u8DL-RE /usr/bin", 
+    "mkdir -p downloads"
+]
+
+[start]
+cmd = "python app.py"
